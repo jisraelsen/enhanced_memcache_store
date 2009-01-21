@@ -11,21 +11,37 @@ h2. Examples
 
 * Delete any keys that match 'argle':
   
+    <pre>
+    <code>
     Rails.cache.delete_matched(/argle/)
- 
+    </code>
+    </pre>
+    
 * Retrieve a list of all stored keys:
 
+    <pre>
+    <code>
     Rails.cache.keys
+    </code>
+    </pre>
    
 h2. Installation
 
 # Install plugin:
   
+    <pre>
+    <code>
     script/plugin install git://github.com/jisraelsen/enhanced_memcache_store.git
+    </code>
+    </pre>
 
 # Add config.cache_store inside initializer in environment.rb:
   
+    <pre>
+    <code>
     config.cache_store = :enhanced_mem_cache_store
+    </code>
+    </pre>
 
 h2. Requirements
   
