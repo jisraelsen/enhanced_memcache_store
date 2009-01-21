@@ -1,0 +1,32 @@
+h2. EnhancedMemCacheStore Plugin
+
+*Author*: Jeremy Israelsen
+*Based On*: MemCache Store with delete_matched (Ladislav Martincik)
+
+h3. Description
+
+Adds the delete_matched functionality to MemCache storage in Rails.  Also allows read access to the cached list of keys.
+
+h3. Examples
+
+  #Delete any keys that match 'argle'.
+  Rails.cache.delete_matched(/argle/)
+ 
+  #Retrieve a list of all stored keys.
+  Rails.cache.keys
+   
+h3. Installation
+
+# Install plugin
+  
+  script/plugin install git://github.com/jisraelsen/enhanced_memcache_store.git
+
+# Add config.cache_store inside initializer in environment.rb.
+  
+  config.cache_store = :enhanced_mem_cache_store
+
+h3. Requirements
+  
+* Memcache
+* memcache-client gem (included in Rails)
+* rspec (for running specs)
