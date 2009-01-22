@@ -5,7 +5,7 @@ class EnhancedMemCacheStore < ActiveSupport::Cache::MemCacheStore
   
   def write(key, value, options = nil)
     if written = super
-      add_key(key)
+      add_key(key) unless options && options[:expires_in]
     end
     
     written

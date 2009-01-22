@@ -17,6 +17,13 @@ describe EnhancedMemCacheStore do
     @memcache.keys.should include('bargles')
   end
   
+  it "should not update key list if store an expirable item" do
+    @memcache.write('argle', 'argledata', :expires_in => 5.minutes).should be_true
+    @memcache.read('argle').should == 'argledata'
+    
+    @memcache.keys.should_not include('argle')
+  end
+  
   describe "when writing to cache" do
     it "should write data to give key" do
       @memcache.write('argle', 'argledata').should be_true
